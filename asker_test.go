@@ -7,7 +7,7 @@ import (
 )
 
 func TestAsk(t *testing.T) {
-	a := asker.Asker{Accept: "y", Reject: "n", Negative: true}
+	a := asker.Asker{Accept: "y", Reject: "n"}
 	a.Ask("is it ok?")
 	if a.Accepted() {
 		t.Log("accepted!")
@@ -16,8 +16,8 @@ func TestAsk(t *testing.T) {
 	}
 }
 
-func TestAskNonNegative(t *testing.T) {
-	a := asker.Asker{Accept: "y", Reject: "n", Negative: false}
+func TestAskPositive(t *testing.T) {
+	a := asker.Asker{Accept: "y", Reject: "n", Positive: true}
 	a.Ask("is it ok?")
 	if a.Accepted() {
 		t.Log("accepted!")
